@@ -17,3 +17,9 @@ font = "sans serif"
 [server]
 # Menyembunyikan menu Streamlit di pojok kanan atas agar lebih clean
 headless = true
+enableCORS = false
+enableXsrfProtection = false
+endpoint_prefix = ""
+
+[browser]
+gatherUsageStats = false

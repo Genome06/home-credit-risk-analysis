@@ -2,6 +2,11 @@ import streamlit as st
 import requests
 import pandas as pd
 import io
+import os
+import platform
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 1. Page Configuration
 st.set_page_config(
@@ -9,6 +14,11 @@ st.set_page_config(
     page_icon="💳",
     layout="wide"
 )
+
+BASE_URL = os.getenv("BASE_URL")
+
+if not BASE_URL or platform.system() == "Windows":
+    BASE_URL = "http://localhost:8000"  # Default for local development on Windows
 
 # 2. Title & Header
 st.title("💳 Predictive Analytics for Home Credit Default Risk (Kaggle Competition)")
@@ -83,7 +93,7 @@ with tab_single:
         try:
             # Call FastAPI (localhost because one Docker container)
             with st.spinner('Calculating risk score...'):
-                response = requests.post("http://localhost:8000/predict", json=payload)
+                response = requests.post(f"{BASE_URL}/predict", json=payload)
                 result = response.json()
 
             if response.status_code == 200:
@@ -142,7 +152,7 @@ with tab_batch:
                 
                 with st.spinner(f'Analyzing {len(df_preview)} customer data... Please wait.'):
                     # Call BATCH Endpoint in FastAPI
-                    response = requests.post("http://localhost:8000/predict-batch", files=files)
+                    response = requests.post(f"{BASE_URL}/predict-batch", files=files)
                 
                 if response.status_code == 200:
                     result = response.json()
