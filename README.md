@@ -1,4 +1,4 @@
-# 💳 Home Credit Default Risk Prediction & Deployment
+# 💳 Predictive Analytics for Home Credit Default Risk (Kaggle Competition)
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg)](https://fastapi.tiangolo.com/)
@@ -104,3 +104,5 @@ Access the UI at http://localhost:7860.
 
 ## 🌐 Deployment
 This application is designed to be deployed on Hugging Face Spaces. It uses a custom run.sh entrypoint to orchestrate both the FastAPI backend (internal) and the Streamlit frontend (public) within a single Docker container.
+
+**Disclaimer: This project is a personal portfolio developed for educational purposes. It utilizes the public dataset provided by Home Credit on Kaggle. This application is not affiliated with, endorsed by, or an official product of Home Credit Group.**

@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # 2. Title & Header
-st.title("💳 Home Credit Risk Analysis")
+st.title("💳 Predictive Analytics for Home Credit Default Risk (Kaggle Competition)")
 st.markdown("Choose an analysis method: Individual Input or Upload Batch (CSV).")
 
 # --- 3. NEW: TABS SYSTEM ---
